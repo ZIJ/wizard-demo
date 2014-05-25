@@ -1,0 +1,6 @@
+{
+  "name": "wizard-demo",
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}
