@@ -7,6 +7,7 @@ var browserify = require('gulp-browserify');
 var less = require('gulp-less');
 var uglify = require('gulp-uglify');
 var cdnizer = require('gulp-cdnizer');
+var autoprefixer = require('gulp-autoprefixer');
 
 var src = './src/';
 var dist = './dist/';
@@ -54,6 +55,7 @@ gulp.task('normalize', function() {
 gulp.task('less', function () {
     gulp.src(src + 'less/**/*.less')
         .pipe(less())
+        .pipe(autoprefixer())
         .pipe(gulp.dest(dist + 'css/'));
 });
 
@@ -74,5 +76,5 @@ gulp.task('jsProd', ['lint'], function() {
         .pipe(gulp.dest(dist + 'js'));
 });
 
-gulp.task('default', ['clean', 'normalize', 'less', 'html', 'jquery', 'js']);
-gulp.task('prod', ['clean', 'normalize', 'less', 'htmlProd', 'jsProd']);
+gulp.task('default', ['normalize', 'less', 'html', 'jquery', 'js']);
+gulp.task('prod', ['normalize', 'less', 'htmlProd', 'jsProd']);
