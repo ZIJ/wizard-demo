@@ -17,7 +17,10 @@ module.exports = Marionette.ItemView.extend({
     },
 
     startWizard: function() {
-        console.log('starting wizard...');
+        var router = this.options.app.router;
+        router.navigate('wizard/0', {
+            trigger: true
+        });
     }
 
 });
